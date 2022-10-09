@@ -8,7 +8,8 @@
 require "rest-client"
 
 en = RestClient.get "https://api.thedogapi.com/v1/breeds?api_key=live_kSgrF1zzKaMF8oZriT5XC8mmdWY4AOeJFN2b8cjEsQS5y40A0Dz8rufbIeP5Rs7t"
-
+facts = RestClient.get "https://dog-api.kinduff.com/api/facts"
+facts_array = JSON.parse(facts)
 dog_array = JSON.parse(en)
 
 Breed.delete_all
@@ -27,5 +28,14 @@ dog_array.each do |d|
     life_span:   d["life_span"],
     origin:      d["origin"],
     image_url:   d["image"]["url"]
+  )
+end
+
+facts = RestClient.get "https://dog-api.kinduff.com/api/facts?number=20"
+facts_array = JSON.parse(facts)
+
+facts_array.each do |fact, value|
+  quotes = Quote.find_or_create_by(
+    dog_quote: fact[value]
   )
 end
