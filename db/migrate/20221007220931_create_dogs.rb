@@ -6,7 +6,7 @@ class CreateDogs < ActiveRecord::Migration[7.0]
       t.string :life_span
       t.string :origin
       t.integer :breed_id
-      t.integer :image_id
+      t.string :image_url
 
       t.timestamps
     end
