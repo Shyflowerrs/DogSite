@@ -5,4 +5,9 @@ class HomeController < ApplicationController
   end
 
   def show; end
+
+  def search
+    search = "%#{params[:keywords]}%"
+    @dogs = Dog.where("name LIKE ?", search)
+  end
 end

@@ -1,14 +1,16 @@
 class DogsController < ApplicationController
   def index
+    @quote = Quote.all.order("RANDOM()").first
     @dogs = Dog.all.order("name DESC")
   end
 
   def show
-    @dog = Dog.find(params[:id])
+    @dogs = Dog.find(params[:id])
   end
 
   def search
-    wildcard_search = "%#{params[:keywords]}%"
-    @searchdogs = Dog.where("name LIKE ?", wildcard_search)
+    @quote = Quote.all.order("RANDOM()").first
+    search = "%#{params[:keywords]}%"
+    @dogs = Dog.where("name LIKE ?", search)
   end
 end

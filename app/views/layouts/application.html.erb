@@ -28,6 +28,12 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 2</a>
     <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 3</a>
     <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 4</a>
+<%= form_with(url: search_dogs_path, method: :get, local: true) do %>
+<%= text_field_tag(:keywords, nil, class: "input is-rounded", placeholder: 'Flower Search')%>
+<div class = "control ">
+<%= submit_tag("Search", class: "button is-success is-rounded")%>
+</div>
+<%end%>
   </div>
 
   <!-- Navbar on small screens -->
@@ -36,7 +42,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
     <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
     <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 4</a>
+
   </div>
+
 </div>
 <header class="w3-container w3-grey w3-center" style="padding:128px 16px">
   <h1 class="w3-margin w3-jumbo">Dogs site</h1>

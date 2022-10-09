@@ -1,0 +1,7 @@
+<p>Results for  <%= params[:keywords]%>:</p>
+
+<ul>
+ <% @dogs.each do |dog|%>
+  <li> <%=link_to dog.name , dog %> </li>
+  <%end%>
+</ul>
