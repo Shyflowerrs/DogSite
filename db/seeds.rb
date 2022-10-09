@@ -7,13 +7,15 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require "rest-client"
 require "csv"
+require "faker"
 en = RestClient.get "https://api.thedogapi.com/v1/breeds?api_key=live_kSgrF1zzKaMF8oZriT5XC8mmdWY4AOeJFN2b8cjEsQS5y40A0Dz8rufbIeP5Rs7t"
 facts = RestClient.get "https://dog-api.kinduff.com/api/facts"
 facts_array = JSON.parse(facts)
 dog_array = JSON.parse(en)
-
+Faker::Name.name.clear
 Breed.delete_all
 Dog.delete_all
+Quote.delete_all
 dog_array.each do |d|
   breed = Breed.find_or_create_by(
     bred_for:    d["bred_for"],
@@ -35,9 +37,11 @@ filename = Rails.root.join("db/quotes.csv") # build out the absolute path to fil
 
 csv_data = File.read(filename)
 quotes = CSV.parse(csv_data, headers: true, encoding: "utf-8")
+count = 19
 
 quotes.each do |fact|
-  quote = Quote.find_or_create_by(
+  quote = Quote.create(
+    author:    Faker::Name.name,
     dog_quote: fact["quotes"]
   )
 end
