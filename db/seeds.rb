@@ -31,11 +31,13 @@ dog_array.each do |d|
   )
 end
 
-facts = RestClient.get "https://dog-api.kinduff.com/api/facts?number=20"
-facts_array = JSON.parse(facts)
+filename = Rails.root.join("db/quotes.csv") # build out the absolute path to file
 
-facts_array.each do |fact, value|
+csv_data = File.read(filename)
+quotes = CSV.parse(csv_data, headers: true, encoding: "utf-8")
+
+quotes.each do |fact|
   quotes = Quote.find_or_create_by(
-    dog_quote: fact[value]
+    dog_quote: fact["quotes"]
   )
 end
