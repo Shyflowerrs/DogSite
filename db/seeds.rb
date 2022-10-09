@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 require "rest-client"
-
+require "csv"
 en = RestClient.get "https://api.thedogapi.com/v1/breeds?api_key=live_kSgrF1zzKaMF8oZriT5XC8mmdWY4AOeJFN2b8cjEsQS5y40A0Dz8rufbIeP5Rs7t"
 facts = RestClient.get "https://dog-api.kinduff.com/api/facts"
 facts_array = JSON.parse(facts)
@@ -37,7 +37,7 @@ csv_data = File.read(filename)
 quotes = CSV.parse(csv_data, headers: true, encoding: "utf-8")
 
 quotes.each do |fact|
-  quotes = Quote.find_or_create_by(
+  quote = Quote.find_or_create_by(
     dog_quote: fact["quotes"]
   )
 end
