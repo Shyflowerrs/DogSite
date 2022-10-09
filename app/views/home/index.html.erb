@@ -1,26 +1,28 @@
 <style>
 
 .layout {
-  width: 80%;
-margin:auto;
+  width: 60%;
+  margin:auto;
   display: flex;
   flex-wrap: wrap;
   flex-flow:center;
   align-items: center;
 }
+.dog{
+  border:1px solid black;
+  text-align:center;
+  margin:5px;
+}
 </style>
 
-<header class="w3-container w3-grey w3-center" style="padding:128px 16px">
-  <h1 class="w3-margin w3-jumbo">Dogs, Homepage</h1>
-</header>
-<div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
-    <h1 class="w3-margin w3-xlarge">Quote of the day: live life</h1>
-</div>
 <!-- First Grid -->
 <div class="w3-row-padding w3-padding-64 w3-container">
  <section class="layout">
         <% @dogs.each do |item| %>
-            <div><img src="<%=item.image_url%>" width="400" height="400"></div>
+            <div class="dog">
+              <img src="<%=item.image_url%>" width="400" height="350"><br>
+              <%=item.name%>
+            </div>
         <% end %>
   </section>
 

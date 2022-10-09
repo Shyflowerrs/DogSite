@@ -1,3 +1,5 @@
 class ApplicationController < ActionController::Base
-  def index; end
+  def index
+    @quote = Quote.all.order("RANDOM()").first
+  end
 end
