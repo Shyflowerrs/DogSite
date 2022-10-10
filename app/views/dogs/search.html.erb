@@ -8,12 +8,16 @@
 }
 </style>
 <div class="data">
-<p>Results for  <%= params[:keywords]%>:</p>
 
+<p>Results for  <%= params[:keywords]%>:</p>
+<%if(@dogs.empty?)%>
+<p> sorry! you did not search for a valid dog breed.</p>
+
+<%else%>
 <ul>
  <% @dogs.each do |dog|%>
   <li> <%=link_to dog.name , dog %> </li>
   <%end%>
 </ul>
-
+<%end%>
 </div>
