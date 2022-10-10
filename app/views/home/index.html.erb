@@ -17,8 +17,9 @@
 
 <!-- First Grid -->
 <div class="w3-row-padding w3-padding-64 w3-container">
+ <%= paginate @data %>
  <section class="layout">
-        <% @dogs.each do |item| %>
+        <% @data.each do |item| %>
             <div class="dog">
               <img src="<%=item.image_url%>" width="400" height="350"><br>
               <td ><%= link_to item.name, item %></td>
