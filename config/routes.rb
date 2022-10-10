@@ -13,11 +13,12 @@ Rails.application.routes.draw do
 
   root "home#index"
   get "about", to: "about#index"
-  resources :dogs
-
+  # resources :dogs
+  # get "dogs/index"
+  get "dogs/search", to: "dogs#search"
   resources :dogs, only: %i[index show] do
-    collection do
-      get "search"
-    end
+    #   collection do
+    #     get "search"
+    #   end
   end
 end

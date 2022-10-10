@@ -13,6 +13,6 @@ class DogsController < ApplicationController
   def search
     @quote = Quote.all.order("RANDOM()").first
     search = "%#{params[:keywords]}%"
-    @dogsearch = Dog.where("name LIKE ?", search)
+    @dogs = Dog.where("name LIKE ?", search)
   end
 end
