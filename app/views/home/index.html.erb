@@ -1,19 +1,4 @@
-<style>
 
-.layout {
-  width: 60%;
-  margin:auto;
-  display: flex;
-  flex-wrap: wrap;
-  flex-flow:center;
-  align-items: center;
-}
-.dog{
-  border:1px solid black;
-  text-align:center;
-  margin:5px;
-}
-</style>
 
 <!-- First Grid -->
 <div class="w3-row-padding w3-padding-64 w3-container">
@@ -21,11 +6,10 @@
  <section class="layout">
         <% @data.each do |item| %>
             <div class="dog">
-              <img src="<%=item.image_url%>" width="400" height="350"><br>
-              <td ><%= link_to item.name, item %></td>
+              <img src="<%=item.image_url%>" alt="A dog photograph" width="400" height="350"><br>
+              <%= link_to item.name, item %>
             </div>
         <% end %>
   </section>
-
   </div>
 
