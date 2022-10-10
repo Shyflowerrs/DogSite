@@ -71,3 +71,5 @@ group :test do
   gem "webdrivers"
   gem "rest-client"
 end
+
+gem 'kaminari'
