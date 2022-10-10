@@ -29,8 +29,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 3</a>
     <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 4</a>
 <%= form_with(url: search_dogs_path, method: :get, local: true) do %>
-<%= text_field_tag(:keywords, nil, class: "input is-rounded", placeholder: 'Flower Search')%>
-<div class = "control ">
+<%= text_field_tag(:keywords, nil, class: "input is-rounded", placeholder: 'Dog breed Search')%>
+
+<div class="control ">
 <%= submit_tag("Search", class: "button is-success is-rounded")%>
 </div>
 <%end%>

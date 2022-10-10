@@ -1,21 +1,2 @@
 
 
-<table class = "table is-striped">
-  <thead>
-    <tr>
-
-      <th>Name</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @dogs.each do |dog| %>
-      <tr>
-        <td ><%= link_to dog.name, dog, class: "has-text-primary-dark"%></td>
-
-
-      </tr>
-    <% end %>
-  </tbody>
-</table>

@@ -1,2 +1,34 @@
-<h1>Dogs#show</h1>
-<p>Find me in app/views/dogs/show.html.erb</p>
+
+<style>
+.data{
+  width:80%;
+  text-align:center;
+  margin:auto;
+}
+</style>
+<div class="data">
+  <table class="data">
+    <thead>
+      <tr>
+
+        <th>Name</th>
+        <th>Temperament</th>
+        <th>life span</th>
+        <th>Breed group</th>
+        <th>Bred for</th>
+
+      </tr>
+    </thead>
+  <img src="<%= @dogs.image_url%>" width="600" height ="500">
+    <tbody>
+
+        <tr>
+          <td ><%= @dogs.name %></td>
+          <td ><%= @dogs.temperament %></td>
+          <td ><%= @dogs.life_span %></td>
+          <td> <%= @breeds.breed_group%></td>
+          <td> <%= @breeds.bred_for%></td>
+        </tr>
+    </tbody>
+  </table>
+</div>
